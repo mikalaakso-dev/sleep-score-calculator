@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Score Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sleep Score Calculator</h1>
+        <form id="sleepForm">
+            <div class="input-group">
+                <label>Total Sleep:</label>
+                <input type="number" id="totalSleepHours" placeholder="hours" required>
+                <input type="number" id="totalSleepMinutes" placeholder="minutes" required>
+            </div>
+            <div class="input-group">
+                <label>Deep Sleep:</label>
+                <input type="number" id="deepSleepHours" placeholder="hours" required>
+                <input type="number" id="deepSleepMinutes" placeholder="minutes" required>
+            </div>
+            <div class="input-group">
+                <label>Light Sleep:</label>
+                <input type="number" id="lightSleepHours" placeholder="hours" required>
+                <input type="number" id="lightSleepMinutes" placeholder="minutes" required>
+            </div>
+            <div class="input-group">
+                <label>Number of Awakenings:</label>
+                <input type="number" id="awakenings" required>
+            </div>
+            <button type="button" onclick="calculateScore()">Calculate</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
