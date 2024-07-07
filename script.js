@@ -17,21 +17,25 @@ function calculateScore() {
     if (totalSleepScore > 40) totalSleepScore = 40;
 
     // Deep Sleep (out of 30 points)
+    const idealDeepSleepMin = 96;
+    const idealDeepSleepMax = 144;
     let deepSleepScore = 0;
-    if (deepSleep >= 96 && deepSleep <= 144) {
+    if (deepSleep >= idealDeepSleepMin && deepSleep <= idealDeepSleepMax) {
         deepSleepScore = 30;
-    } else if (deepSleep < 96) {
-        deepSleepScore = (deepSleep / 96) * 30;
+    } else if (deepSleep < idealDeepSleepMin) {
+        deepSleepScore = (deepSleep / idealDeepSleepMin) * 30;
+    } else {
+        deepSleepScore = 30;  // Cap at 30 if it's above the ideal range
     }
 
     // Light Sleep (out of 20 points)
-    const idealLightSleep = 300;
+    const idealLightSleep = 300;  // Average of 50-60% of 8 hours (240 to 288 minutes)
     let lightSleepScore = (lightSleep / idealLightSleep) * 20;
     if (lightSleepScore > 20) lightSleepScore = 20;
 
     // Awakenings (out of 10 points)
     let awakeningsScore = 10;
-    if (awakenings > 0) awakeningsScore = 0;
+    if (awakenings > 0) awakeningsScore = 8;  // Slight reduction for one awakening
 
     // Total Sleep Score
     const totalScore = totalSleepScore + deepSleepScore + lightSleepScore + awakeningsScore;
